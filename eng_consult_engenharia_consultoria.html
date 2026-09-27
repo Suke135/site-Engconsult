@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENG Consult | Engenharia, Projetos & Consultoria</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#06132f',
+              dark: '#09245e',
+              blue: '#da9f00',
+              accent: '#053575',
+              cyan: '#ffffff',
+              surface: '#F8FAFC',
+            }
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .video-glow {
+      box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.25);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 bg-brand-navy/95 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#inicio" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-accent rounded-lg p-1">
+          <!-- Imagem PNG -->
+          <img src="ENGCONSULT LOGO BRANCA.png" alt="Logótipo ENG Consult" class="w-20 h-20 object-contain" />
+          <div class="flex flex-col">
+            <span class="text-[10px] tracking-widest text-slate-400 uppercase font-medium">Engenharia & Soluções</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#inicio" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Início</a>
+          <a href="#apresentacao" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Sobre Nós</a>
+          <a href="#servicos" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Serviços</a>
+          <a href="#contato" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Contato</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="hidden md:flex items-center">
+          <a href="#contato" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-brand-accent hover:bg-blue-600 rounded-lg shadow-md hover:shadow-blue-500/25 transition-all duration-200">
+            Solicitar Orçamento
+            <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1.5"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menu-toggle-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-accent" aria-label="Abrir Menu">
+          <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          <i data-lucide="x" id="close-icon" class="w-6 h-6 hidden"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-brand-navy px-4 pt-3 pb-6 space-y-3">
+      <a href="#inicio" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Início</a>
+      <a href="#apresentacao" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Sobre Nós</a>
+      <a href="#servicos" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Serviços</a>
+      <a href="#contato" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Contato</a>
+      <a href="#contato" class="w-full mt-3 inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-brand-accent hover:bg-blue-600 rounded-lg shadow transition">
+        Solicitar Orçamento
+      </a>
+    </div>
+  </header>
+
+  <!-- Main / Hero Presentation Section -->
+  <main id="inicio" class="flex-grow">
+    <section id="apresentacao" class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-dark to-slate-900 text-white pt-12 pb-20 lg:py-24">
+      
+      <!-- Subtle Background Decorative Gradients -->
+      <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute top-1/2 -right-32 w-96 h-96 bg-brand-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Column: Presentation Text -->
+          <div class="lg:col-span-6 xl:col-span-6 flex flex-col justify-center text-left space-y-6">
+            
+            <div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-cyan text-xs font-semibold uppercase tracking-wider">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              Excelência Técnica e Confiabilidade
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl xl:text-5xl font-extrabold tracking-tight leading-tight text-white">
+              Engenharia estratégica e consultoria de alto impacto para a sua obra.
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
+              Na <strong class="text-white font-semibold">ENG Consult</strong>, transformamos desafios complexos em soluções estruturadas e seguras. Atuamos com gestão de obras, desenvolvimento de projetos estruturais e perícias técnicas para garantir precisão, sustentabilidade orçamentária e conformidade com as normas vigentes.
+            </p>
+
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+              <a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-white bg-brand-accent hover:bg-blue-600 rounded-xl shadow-lg hover:shadow-blue-500/30 transition duration-200 text-center">
+                <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                Fale com um Especialista
+              </a>
+              <a href="#servicos" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 rounded-xl transition duration-200 text-center">
+                Conhecer Serviços
+                <i data-lucide="chevron-down" class="w-4 h-4 ml-1.5"></i>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Video em Formato Horizontal/Deitado Original (Sem cortes) -->
+          <div class="lg:col-span-6 xl:col-span-6 flex justify-center items-center">
+            <div class="relative w-full max-w-2xl">
+              
+              <!-- Subtle glow background element -->
+              <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-accent to-brand-cyan rounded-3xl blur-lg opacity-35 group-hover:opacity-60 transition duration-1000"></div>
+
+              <!-- Video Container Card -->
+              <div class="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900 shadow-2xl video-glow group">
+                
+                <!-- aspect-video garante o formato widescreen (16:9 deitado) exato -->
+                <div class="aspect-video w-full bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                  
+                  <!-- object-contain garante que 100% da imagem original apareça sem recortes -->
+                  <video 
+                    id="hero-video"
+                    class="w-full h-full object-contain pointer-events-none"
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                    preload="auto"
+                  >
+                    <source src="video loop engconsult.mp4" type="video/mp4">
+                    <source src="seu-video.mov" type="video/quicktime">
+                    Seu navegador não suporta a tag de vídeo.
+                  </video>
+
+                  <!-- Barra de Controle de Áudio (Aparece ao passar o mouse) -->
+                  <div class="absolute bottom-4 right-4 flex items-center gap-2 bg-slate-900/90 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-700/80 shadow-lg z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
+                    <button id="mute-btn" type="button" class="text-slate-300 hover:text-white transition p-1 focus:outline-none" title="Ativar/Desativar Som">
+                      <i data-lucide="volume-x" id="volume-icon" class="w-5 h-5 text-brand-cyan"></i>
+                    </button>
+                    <input 
+                      type="range" 
+                      id="volume-slider" 
+                      min="0" 
+                      max="1" 
+                      step="0.05" 
+                      value="0" 
+                      class="w-16 sm:w-24 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                      title="Volume"
+                    />
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-20 bg-slate-100 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-brand-accent">Nossas Áreas de Atuação</h2>
+          <p class="mt-2 text-3xl font-extrabold text-slate-900 sm:text-4xl tracking-tight">Soluções completas para empreendimentos</p>
+          <p class="mt-3 text-base text-slate-600">Da concepção do projeto estrutural à fiscalização final, aliamos rigor técnico e governança.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Card 1 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-accent flex items-center justify-center mb-6">
+              <i data-lucide="building-2" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Projetos Estruturais</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Dimensionamento em concreto armado, metálica e alvenaria estrutural, visando economia de materiais e segurança normativa.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-accent"></i> Modelagem e cálculo</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-accent"></i> Compatibilização BIM</li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center mb-6">
+              <i data-lucide="hard-hat" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Gestão e Fiscalização</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Acompanhamento detalhado de cronogramas, controle de qualidade de suprimentos e supervisão contínua da execução técnica.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600"></i> Gestão orçamentária</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600"></i> Relatórios de progresso</li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-6">
+              <i data-lucide="file-check-2" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Laudos e Perícias</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Vistorias técnicas, avaliação de patologias construtivas, emissão de laudos de reforma e assistência técnica judicial.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-slate-700"></i> Emissão de ART/RRT</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-slate-700"></i> Diagnóstico patológico</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Prompt Strip -->
+    <section class="bg-brand-navy py-12 text-white border-y border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-2xl font-bold">Precisa de um diagnóstico técnico para sua obra?</h3>
+          <p class="text-slate-400 text-sm mt-1">Converse com nossos engenheiros consultores e agende uma reunião inicial sem compromisso.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-semibold text-white shadow-lg transition">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            Atendimento WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="contato" class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row justify-start items-start gap-12 lg:gap-24 mb-12">
+        
+        <!-- Column 1: Quick Links -->
+        <div class="space-y-4 w-full md:w-auto">
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider text-left">Navegação Rápida</h4>
+          <ul class="space-y-2 text-sm text-left">
+            <li><a href="#inicio" class="hover:text-brand-cyan transition-colors">Início</a></li>
+            <li><a href="#apresentacao" class="hover:text-brand-cyan transition-colors">Sobre a ENG Consult</a></li>
+            <li><a href="#servicos" class="hover:text-brand-cyan transition-colors">Portfólio de Serviços</a></li>
+            <li><a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors">Fale com a Engenharia</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 2: Contact Details -->
+        <div class="space-y-4 w-full md:w-auto">
+          <h4 class="text-sm font-semibold text-white uppercase tracking-wider text-left">Contato Direto</h4>
+          <ul class="space-y-3 text-sm text-left">
+            <li class="flex items-start gap-3">
+              <i data-lucide="mail" class="w-4 h-4 text-brand-cyan mt-1 flex-shrink-0"></i>
+              <div>
+                <span class="block text-slate-500 text-xs font-medium">E-mail Comercial:</span>
+                <a href="mailto:Engconsult@engconsulbr.com.br" class="text-slate-300 hover:text-white transition-colors">
+                  Engconsult@engconsultbr.com.br
+                </a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="phone" class="w-4 h-4 text-brand-cyan mt-1 flex-shrink-0"></i>
+              <div>
+                <span class="block text-slate-500 text-xs font-medium">Telefone:</span>
+                <a href="tel:91991227632" class="text-slate-300 hover:text-white transition-colors">
+                  (91) 99122-7632
+                </a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan mt-1 flex-shrink-0"></i>
+              <div>
+                <span class="block text-slate-500 text-xs font-medium">Localização:</span>
+                <span class="text-slate-300">BR-316, Km 51 - Triângulo, Santa Izabel do Pará - PA, 68790-000</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar with Copyright -->
+      <div class="pt-8 mt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 ENG Consult Engenharia & Consultoria. Todos os direitos reservados.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-slate-400 transition">Política de Privacidade</a>
+          <a href="#" class="hover:text-slate-400 transition">Termos de Serviço</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Inicializar ícones do Lucide
+    lucide.createIcons();
+
+    // Menu Mobile
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (menuToggleBtn && mobileMenu) {
+      menuToggleBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        if (isHidden) {
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        } else {
+          menuIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        }
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    }
+
+    // Controle de Áudio e Loop Contínuo do Vídeo (Sem permitir pausa)
+    const video = document.getElementById('hero-video');
+    const muteBtn = document.getElementById('mute-btn');
+    const volumeSlider = document.getElementById('volume-slider');
+    const volumeIcon = document.getElementById('volume-icon');
+
+    if (video && muteBtn && volumeSlider) {
+      video.addEventListener('pause', () => {
+        video.play();
+      });
+
+      muteBtn.addEventListener('click', () => {
+        video.muted = !video.muted;
+        if (video.muted) {
+          volumeSlider.value = 0;
+          volumeIcon.setAttribute('data-lucide', 'volume-x');
+        } else {
+          if (video.volume === 0) video.volume = 0.5;
+          volumeSlider.value = video.volume;
+          volumeIcon.setAttribute('data-lucide', video.volume > 0.5 ? 'volume-2' : 'volume-1');
+        }
+        lucide.createIcons();
+      });
+
+      volumeSlider.addEventListener('input', (e) => {
+        const val = parseFloat(e.target.value);
+        video.volume = val;
+        
+        if (val === 0) {
+          video.muted = true;
+          volumeIcon.setAttribute('data-lucide', 'volume-x');
+        } else {
+          video.muted = false;
+          volumeIcon.setAttribute('data-lucide', val > 0.5 ? 'volume-2' : 'volume-1');
+        }
+        lucide.createIcons();
+      });
+    }
+  </script>
+</body>
+</html>
