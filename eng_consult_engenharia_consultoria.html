@@ -41,8 +41,19 @@
     body {
       font-family: 'Montserrat', sans-serif;
     }
-    .video-glow {
-      box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.25);
+    
+    /* Animação contínua e suave do carrossel infinito */
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marquee 35s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
     }
   </style>
 </head>
@@ -55,8 +66,7 @@
       <div class="flex items-center justify-between h-20">
         
         <!-- Logo -->
-        <a href="#inicio" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-accent rounded-lg p-1">
-          <!-- Imagem PNG -->
+        <a href="#inicio" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-accent rounded-lg p-1 transition-transform duration-300 hover:scale-105">
           <img src="ENGCONSULT LOGO BRANCA.png" alt="Logótipo ENG Consult" class="w-20 h-20 object-contain" />
           <div class="flex flex-col">
             <span class="text-[10px] tracking-widest text-slate-400 uppercase font-medium">Engenharia & Soluções</span>
@@ -66,14 +76,15 @@
         <!-- Desktop Navigation Links -->
         <nav class="hidden md:flex items-center gap-8">
           <a href="#inicio" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Início</a>
-          <a href="#apresentacao" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Sobre Nós</a>
+          <a href="#projetos" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Projetos</a>
           <a href="#servicos" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Serviços</a>
+          <a href="#avaliacoes" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Avaliações & Local</a>
           <a href="#contato" class="text-sm font-medium text-slate-300 hover:text-brand-cyan transition-colors">Contato</a>
         </nav>
 
         <!-- CTA Button -->
         <div class="hidden md:flex items-center">
-          <a href="#contato" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-brand-accent hover:bg-blue-600 rounded-lg shadow-md hover:shadow-blue-500/25 transition-all duration-200">
+          <a href="#contato" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-brand-accent hover:bg-blue-800 rounded-lg shadow-md hover:shadow-blue-900/30 transition-all duration-300 hover:scale-105">
             Solicitar Orçamento
             <i data-lucide="arrow-up-right" class="w-4 h-4 ml-1.5"></i>
           </a>
@@ -90,31 +101,28 @@
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-brand-navy px-4 pt-3 pb-6 space-y-3">
       <a href="#inicio" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Início</a>
-      <a href="#apresentacao" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Sobre Nós</a>
+      <a href="#projetos" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Projetos</a>
       <a href="#servicos" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Serviços</a>
+      <a href="#avaliacoes" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Avaliações & Local</a>
       <a href="#contato" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-brand-cyan transition">Contato</a>
-      <a href="#contato" class="w-full mt-3 inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-brand-accent hover:bg-blue-600 rounded-lg shadow transition">
+      <a href="#contato" class="w-full mt-3 inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-brand-accent hover:bg-blue-800 rounded-lg shadow transition">
         Solicitar Orçamento
       </a>
     </div>
   </header>
 
-  <!-- Main / Hero Presentation Section -->
+  <!-- Main Content -->
   <main id="inicio" class="flex-grow">
+    
+    <!-- Hero Presentation Section -->
     <section id="apresentacao" class="relative overflow-hidden bg-gradient-to-b from-brand-navy via-brand-dark to-slate-900 text-white pt-12 pb-20 lg:py-24">
-      
-      <!-- Subtle Background Decorative Gradients -->
-      <div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute top-1/2 -right-32 w-96 h-96 bg-brand-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
-
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           <!-- Left Column: Presentation Text -->
           <div class="lg:col-span-6 xl:col-span-6 flex flex-col justify-center text-left space-y-6">
-            
-            <div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-brand-accent/15 border border-brand-accent/30 text-brand-cyan text-xs font-semibold uppercase tracking-wider">
-              <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-brand-accent/30 border border-brand-accent/50 text-white text-xs font-semibold uppercase tracking-wider">
+              <i data-lucide="shield-check" class="w-4 h-4 text-brand-blue"></i>
               Excelência Técnica e Confiabilidade
             </div>
 
@@ -128,32 +136,25 @@
 
             <!-- Call to Actions -->
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
-              <a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-white bg-brand-accent hover:bg-blue-600 rounded-xl shadow-lg hover:shadow-blue-500/30 transition duration-200 text-center">
+              <a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-white bg-brand-accent hover:bg-blue-800 rounded-none shadow-lg transition-all duration-300 hover:scale-105 text-center">
                 <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
                 Fale com um Especialista
               </a>
-              <a href="#servicos" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 rounded-xl transition duration-200 text-center">
+              <a href="#servicos" class="inline-flex items-center justify-center px-6 py-3.5 text-base font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 rounded-none transition-all duration-300 hover:scale-105 text-center">
                 Conhecer Serviços
                 <i data-lucide="chevron-down" class="w-4 h-4 ml-1.5"></i>
               </a>
             </div>
-
           </div>
 
-          <!-- Right Column: Video em Formato Horizontal/Deitado Original (Sem cortes) -->
+          <!-- Right Column: Video (Bordas retas e sem luz de fundo) -->
           <div class="lg:col-span-6 xl:col-span-6 flex justify-center items-center">
             <div class="relative w-full max-w-2xl">
               
-              <!-- Subtle glow background element -->
-              <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-accent to-brand-cyan rounded-3xl blur-lg opacity-35 group-hover:opacity-60 transition duration-1000"></div>
-
-              <!-- Video Container Card -->
-              <div class="relative rounded-2xl overflow-hidden border border-slate-700/80 bg-slate-900 shadow-2xl video-glow group">
-                
-                <!-- aspect-video garante o formato widescreen (16:9 deitado) exato -->
+              <!-- Video Container Card: Sem borda arredondada (rounded-none) e sem blur/luz -->
+              <div class="relative rounded-none overflow-hidden border border-slate-700/80 bg-slate-900 shadow-2xl group transition-transform duration-300 hover:scale-[1.01]">
                 <div class="aspect-video w-full bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   
-                  <!-- object-contain garante que 100% da imagem original apareça sem recortes -->
                   <video 
                     id="hero-video"
                     class="w-full h-full object-contain pointer-events-none"
@@ -165,13 +166,12 @@
                   >
                     <source src="video loop engconsult.mp4" type="video/mp4">
                     <source src="seu-video.mov" type="video/quicktime">
-                    Seu navegador não suporta a tag de vídeo.
                   </video>
 
-                  <!-- Barra de Controle de Áudio (Aparece ao passar o mouse) -->
-                  <div class="absolute bottom-4 right-4 flex items-center gap-2 bg-slate-900/90 backdrop-blur-md px-3 py-2 rounded-xl border border-slate-700/80 shadow-lg z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
+                  <!-- Barra de Controle de Áudio -->
+                  <div class="absolute bottom-4 right-4 flex items-center gap-2 bg-slate-900/90 backdrop-blur-md px-3 py-2 border border-slate-700/80 shadow-lg z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto">
                     <button id="mute-btn" type="button" class="text-slate-300 hover:text-white transition p-1 focus:outline-none" title="Ativar/Desativar Som">
-                      <i data-lucide="volume-x" id="volume-icon" class="w-5 h-5 text-brand-cyan"></i>
+                      <i data-lucide="volume-x" id="volume-icon" class="w-5 h-5 text-white"></i>
                     </button>
                     <input 
                       type="range" 
@@ -180,13 +180,12 @@
                       max="1" 
                       step="0.05" 
                       value="0" 
-                      class="w-16 sm:w-24 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                      class="w-16 sm:w-24 h-1.5 bg-slate-700 rounded-none appearance-none cursor-pointer accent-blue-500"
                       title="Volume"
                     />
                   </div>
 
                 </div>
-
               </div>
 
             </div>
@@ -196,7 +195,69 @@
       </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- NOVA SEÇÃO: Carrossel Infinito de Fotos (Projetos & Obras) -->
+    <section id="projetos" class="py-12 bg-slate-900 border-y border-slate-800 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Portfólio em Campo</span>
+            <h3 class="text-xl font-bold text-white mt-1">Registros de Execução e Estruturas</h3>
+          </div>
+          <span class="text-xs text-slate-400 hidden sm:block">Passe o mouse para pausar</span>
+        </div>
+      </div>
+
+      <!-- Faixa deslizante de 10 fotos duplicadas para looping contínuo -->
+      <div class="relative w-full overflow-hidden">
+        <div class="animate-marquee flex items-center gap-5">
+          <!-- 10 Fotos Temáticas -->
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&w=600&q=80" alt="Obra 1" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Projeto 2" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Construção 3" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" alt="Inspeção 4" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Estrutura 5" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Edificação 6" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=600&q=80" alt="Viga Metálica 7" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Engenharia 8" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Fachada 9" class="w-full h-full object-cover" />
+          </div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105">
+            <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=600&q=80" alt="Plantas e Pranchas 10" class="w-full h-full object-cover" />
+          </div>
+
+          <!-- Conjunto Clonado para emenda contínua 100% fluida -->
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&w=600&q=80" alt="Obra 1" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" alt="Projeto 2" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="Construção 3" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" alt="Inspeção 4" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Estrutura 5" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80" alt="Edificação 6" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&w=600&q=80" alt="Viga Metálica 7" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="Engenharia 8" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="Fachada 9" class="w-full h-full object-cover" /></div>
+          <div class="w-72 h-48 flex-shrink-0 overflow-hidden border border-slate-700 shadow-md transition-transform duration-300 hover:scale-105"><img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=600&q=80" alt="Plantas e Pranchas 10" class="w-full h-full object-cover" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section (Com animação hover:scale-105 nos cards) -->
     <section id="servicos" class="py-20 bg-slate-100 border-b border-slate-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -209,8 +270,8 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           <!-- Card 1 -->
-          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 rounded-xl bg-blue-100 text-brand-accent flex items-center justify-center mb-6">
+          <div class="bg-white p-8 rounded-none border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
+            <div class="w-12 h-12 rounded-none bg-blue-100 text-brand-accent flex items-center justify-center mb-6">
               <i data-lucide="building-2" class="w-6 h-6"></i>
             </div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">Projetos Estruturais</h3>
@@ -218,14 +279,14 @@
               Dimensionamento em concreto armado, metálica e alvenaria estrutural, visando economia de materiais e segurança normativa.
             </p>
             <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
-              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-accent"></i> Modelagem e cálculo</li>
-              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-accent"></i> Compatibilização BIM</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue"></i> Modelagem e cálculo</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue"></i> Compatibilização BIM</li>
             </ul>
           </div>
 
           <!-- Card 2 -->
-          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center mb-6">
+          <div class="bg-white p-8 rounded-none border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
+            <div class="w-12 h-12 rounded-none bg-slate-100 text-brand-accent flex items-center justify-center mb-6">
               <i data-lucide="hard-hat" class="w-6 h-6"></i>
             </div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">Gestão e Fiscalização</h3>
@@ -233,14 +294,14 @@
               Acompanhamento detalhado de cronogramas, controle de qualidade de suprimentos e supervisão contínua da execução técnica.
             </p>
             <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
-              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600"></i> Gestão orçamentária</li>
-              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan-600"></i> Relatórios de progresso</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue"></i> Gestão orçamentária</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue"></i> Relatórios de progresso</li>
             </ul>
           </div>
 
           <!-- Card 3 -->
-          <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-            <div class="w-12 h-12 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center mb-6">
+          <div class="bg-white p-8 rounded-none border border-slate-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer">
+            <div class="w-12 h-12 rounded-none bg-blue-50 text-slate-700 flex items-center justify-center mb-6">
               <i data-lucide="file-check-2" class="w-6 h-6"></i>
             </div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">Laudos e Perícias</h3>
@@ -248,9 +309,101 @@
               Vistorias técnicas, avaliação de patologias construtivas, emissão de laudos de reforma e assistência técnica judicial.
             </p>
             <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
-              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-slate-700"></i> Emissão de ART/RRT</li>
-              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-slate-700"></i> Diagnóstico patológico</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue"></i> Emissão de ART/RRT</li>
+              <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-blue"></i> Diagnóstico patológico</li>
             </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: Feedbacks com Setas + Google Maps da ENG Consult -->
+    <section id="avaliacoes" class="py-20 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+          
+          <!-- Lado Esquerdo: Carrossel de Feedbacks com Setas -->
+          <div class="lg:col-span-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Depoimentos</span>
+              <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-4 tracking-tight">O que dizem os nossos clientes</h2>
+              <p class="text-slate-600 text-sm leading-relaxed mb-8">
+                A satisfação de quem confia na pontualidade, rigor técnico e excelência de engenharia da ENG Consult.
+              </p>
+            </div>
+
+            <!-- Caixa do Feedback Interativo -->
+            <div class="relative bg-white border border-slate-200 p-8 shadow-md rounded-none min-h-[260px] flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
+              
+              <div id="feedback-container">
+                <div class="flex items-center gap-1 text-amber-500 mb-4">
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                </div>
+
+                <p id="feedback-text" class="text-slate-700 italic text-base leading-relaxed transition-opacity duration-300">
+                  "A equipe da ENG Consult realizou todo o cálculo estrutural do nosso galpão comercial. Precisão milimétrica, economia real de aço e conformidade impecável. Recomendo fortemente!"
+                </p>
+
+                <div class="mt-6 flex items-center gap-3">
+                  <div class="w-10 h-10 bg-brand-navy text-white flex items-center justify-center font-bold text-sm" id="feedback-avatar">
+                    RC
+                  </div>
+                  <div>
+                    <h4 id="feedback-author" class="font-bold text-slate-900 text-sm">Rodrigo Cardoso</h4>
+                    <span id="feedback-role" class="text-slate-500 text-xs">Diretor de Obras - Construtora Norte</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Controles de Navegação (Setas) -->
+              <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-100">
+                <div class="flex items-center gap-1.5" id="feedback-indicators">
+                  <span class="w-6 h-1.5 bg-brand-accent transition-all duration-300"></span>
+                  <span class="w-2.5 h-1.5 bg-slate-300 transition-all duration-300"></span>
+                  <span class="w-2.5 h-1.5 bg-slate-300 transition-all duration-300"></span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <button id="prev-feedback" class="w-10 h-10 border border-slate-300 flex items-center justify-center text-slate-700 hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300 hover:scale-105 focus:outline-none" aria-label="Feedback Anterior">
+                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                  </button>
+                  <button id="next-feedback" class="w-10 h-10 border border-slate-300 flex items-center justify-center text-slate-700 hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300 hover:scale-105 focus:outline-none" aria-label="Próximo Feedback">
+                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Lado Direito: Google Maps da Localização da Empresa -->
+          <div class="lg:col-span-6 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-blue">Onde Estamos</span>
+              <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-4 tracking-tight">Nossa Localização</h2>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                Sede técnica na BR-316, Km 51 - Triângulo, Santa Izabel do Pará - PA. Aberto para reuniões técnicas e visitas operacionais.
+              </p>
+            </div>
+
+            <!-- Frame interativo do Google Maps -->
+            <div class="w-full h-[320px] lg:h-[350px] border border-slate-300 shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-[1.01]">
+              <iframe 
+                title="Localização ENG Consult" 
+                src="https://maps.google.com/maps?q=BR-316%2C%20Km%2051%20Santa%20Izabel%20do%20Par%C3%A1&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+                class="w-full h-full border-0" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
 
         </div>
@@ -266,7 +419,7 @@
           <p class="text-slate-400 text-sm mt-1">Converse com nossos engenheiros consultores e agende uma reunião inicial sem compromisso.</p>
         </div>
         <div class="flex items-center gap-3">
-          <a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 font-semibold text-white shadow-lg transition">
+          <a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-none bg-emerald-600 hover:bg-emerald-500 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105">
             <i data-lucide="message-circle" class="w-5 h-5"></i>
             Atendimento WhatsApp
           </a>
@@ -287,7 +440,9 @@
           <ul class="space-y-2 text-sm text-left">
             <li><a href="#inicio" class="hover:text-brand-cyan transition-colors">Início</a></li>
             <li><a href="#apresentacao" class="hover:text-brand-cyan transition-colors">Sobre a ENG Consult</a></li>
+            <li><a href="#projetos" class="hover:text-brand-cyan transition-colors">Projetos em Campo</a></li>
             <li><a href="#servicos" class="hover:text-brand-cyan transition-colors">Portfólio de Serviços</a></li>
+            <li><a href="#avaliacoes" class="hover:text-brand-cyan transition-colors">Depoimentos & Local</a></li>
             <li><a href="https://wa.me/5591991227632" target="_blank" rel="noopener noreferrer" class="hover:text-brand-cyan transition-colors">Fale com a Engenharia</a></li>
           </ul>
         </div>
@@ -297,16 +452,16 @@
           <h4 class="text-sm font-semibold text-white uppercase tracking-wider text-left">Contato Direto</h4>
           <ul class="space-y-3 text-sm text-left">
             <li class="flex items-start gap-3">
-              <i data-lucide="mail" class="w-4 h-4 text-brand-cyan mt-1 flex-shrink-0"></i>
+              <i data-lucide="mail" class="w-4 h-4 text-brand-blue mt-1 flex-shrink-0"></i>
               <div>
                 <span class="block text-slate-500 text-xs font-medium">E-mail Comercial:</span>
-                <a href="mailto:Engconsult@engconsulbr.com.br" class="text-slate-300 hover:text-white transition-colors">
+                <a href="mailto:Engconsult@engconsultbr.com.br" class="text-slate-300 hover:text-white transition-colors">
                   Engconsult@engconsultbr.com.br
                 </a>
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <i data-lucide="phone" class="w-4 h-4 text-brand-cyan mt-1 flex-shrink-0"></i>
+              <i data-lucide="phone" class="w-4 h-4 text-brand-blue mt-1 flex-shrink-0"></i>
               <div>
                 <span class="block text-slate-500 text-xs font-medium">Telefone:</span>
                 <a href="tel:91991227632" class="text-slate-300 hover:text-white transition-colors">
@@ -315,7 +470,7 @@
               </div>
             </li>
             <li class="flex items-start gap-3">
-              <i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan mt-1 flex-shrink-0"></i>
+              <i data-lucide="map-pin" class="w-4 h-4 text-brand-blue mt-1 flex-shrink-0"></i>
               <div>
                 <span class="block text-slate-500 text-xs font-medium">Localização:</span>
                 <span class="text-slate-300">BR-316, Km 51 - Triângulo, Santa Izabel do Pará - PA, 68790-000</span>
@@ -342,7 +497,7 @@
     // Inicializar ícones do Lucide
     lucide.createIcons();
 
-    // Menu Mobile
+    // Menu Mobile Toggle
     const menuToggleBtn = document.getElementById('menu-toggle-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -369,16 +524,14 @@
       });
     }
 
-    // Controle de Áudio e Loop Contínuo do Vídeo (Sem permitir pausa)
+    // Controle de Áudio do Vídeo (Loop contínuo sem pausa)
     const video = document.getElementById('hero-video');
     const muteBtn = document.getElementById('mute-btn');
     const volumeSlider = document.getElementById('volume-slider');
     const volumeIcon = document.getElementById('volume-icon');
 
     if (video && muteBtn && volumeSlider) {
-      video.addEventListener('pause', () => {
-        video.play();
-      });
+      video.addEventListener('pause', () => video.play());
 
       muteBtn.addEventListener('click', () => {
         video.muted = !video.muted;
@@ -396,7 +549,6 @@
       volumeSlider.addEventListener('input', (e) => {
         const val = parseFloat(e.target.value);
         video.volume = val;
-        
         if (val === 0) {
           video.muted = true;
           volumeIcon.setAttribute('data-lucide', 'volume-x');
@@ -407,6 +559,66 @@
         lucide.createIcons();
       });
     }
+
+    // Gerenciamento dos Feedbacks dos Clientes com as Setas
+    const feedbacks = [
+      {
+        text: '"A equipe da ENG Consult realizou todo o cálculo estrutural do nosso galpão comercial. Precisão milimétrica, economia real de aço e conformidade impecável. Recomendo fortemente!"',
+        author: 'Rodrigo Cardoso',
+        role: 'Diretor de Obras - Construtora Norte',
+        initials: 'RC'
+      },
+      {
+        text: '"Contratamos a perícia técnica para um laudo estrutural de reforma crítica. O relatório foi entregue antes do prazo e com detalhamento que nos deu total segurança perante os órgãos de fiscalização."',
+        author: 'Mariana Silveira',
+        role: 'Gerente Patrimonial - Grupo Vanguarda',
+        initials: 'MS'
+      },
+      {
+        text: '"Excelente acompanhamento e fiscalização de obras. Ter a governança técnica da ENG Consult no canteiro reduziu retrabalhos em mais de 30% em nossa expansão industrial."',
+        author: 'Carlos Eduardo Mendes',
+        role: 'Engenheiro Chefe - Soluções Logísticas',
+        initials: 'CM'
+      }
+    ];
+
+    let currentFeedbackIndex = 0;
+    const feedbackTextEl = document.getElementById('feedback-text');
+    const feedbackAuthorEl = document.getElementById('feedback-author');
+    const feedbackRoleEl = document.getElementById('feedback-role');
+    const feedbackAvatarEl = document.getElementById('feedback-avatar');
+    const indicatorsContainer = document.getElementById('feedback-indicators');
+
+    function renderFeedback(index) {
+      if (!feedbackTextEl) return;
+      feedbackTextEl.style.opacity = '0';
+      
+      setTimeout(() => {
+        const item = feedbacks[index];
+        feedbackTextEl.textContent = item.text;
+        feedbackAuthorEl.textContent = item.author;
+        feedbackRoleEl.textContent = item.role;
+        feedbackAvatarEl.textContent = item.initials;
+        feedbackTextEl.style.opacity = '1';
+
+        // Atualiza barras de indicação
+        if (indicatorsContainer) {
+          indicatorsContainer.innerHTML = feedbacks.map((_, i) => `
+            <span class="${i === index ? 'w-6 bg-brand-accent' : 'w-2.5 bg-slate-300'} h-1.5 transition-all duration-300"></span>
+          `).join('');
+        }
+      }, 200);
+    }
+
+    document.getElementById('prev-feedback')?.addEventListener('click', () => {
+      currentFeedbackIndex = (currentFeedbackIndex - 1 + feedbacks.length) % feedbacks.length;
+      renderFeedback(currentFeedbackIndex);
+    });
+
+    document.getElementById('next-feedback')?.addEventListener('click', () => {
+      currentFeedbackIndex = (currentFeedbackIndex + 1) % feedbacks.length;
+      renderFeedback(currentFeedbackIndex);
+    });
   </script>
 </body>
 </html>
